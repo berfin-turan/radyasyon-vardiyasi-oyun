@@ -53,6 +53,9 @@ Karakter hareketi ve çevre etkileşimi klavye ve fare kombinasyonu ile sağlanm
 ![Oyun Görseli 3](ekran3.png)
 ![Oyun Görseli 4](ekran4.png)
 ![Oyun Görseli 5](ekran5.png)
+![Oyun Görseli 5](ekran6.png)
+![Oyun Görseli 5](ekran7.png)
+![Oyun Görseli 5](ekran8.png)
 
 ---
 
