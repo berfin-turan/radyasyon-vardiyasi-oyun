@@ -1,6 +1,6 @@
 # ☢️ RADYASYON VARDİYASI 
 
-**🎮 Oynanabilir Canlı Link:** [Oyunun GitHub Pages veya itch.io linkini buraya yapıştırın]
+**🎮 Oynanabilir Canlı Link:** https://berfin-turan.github.io/radyasyon-vardiyasi-oyun/
 
 ## 👥 Grup Üyeleri
 * **Berfin Turan** - 24360859093
