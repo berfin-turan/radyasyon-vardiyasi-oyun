@@ -653,7 +653,7 @@ function update() {
         }
 
         if (player.x < 0 && oyunDurumu === 'oyun') {
-            /Karakterin oyun ekranının sol tarafından çıkmamasını sağlar
+            //Karakterin oyun ekranının sol tarafından çıkmamasını sağlar
             player.x = 0;
         }
         /*Buradaki 2 else-if yapısı sayesinde önceki odalarda bir envanter
