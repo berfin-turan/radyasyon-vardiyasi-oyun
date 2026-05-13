@@ -915,7 +915,7 @@ function kapiCarpismaKontrolu() {
 // Saniyede 1 kez çalışan zamanlayıcı
 setInterval(function () {
 
-    let oyundaMiyiz = (oyunDurumu === 'oyun' || oyunDurumu === 'oda2' || oyunDurumu === 'oda3' || oyunDurumu === 'oda4');
+    let oyundaMiyiz = (oyunDurumu === 'oyun' || oyunDurumu === 'oda2' || oyunDurumu === 'oda3');
     // Sadece oyun içindeyken (başlangıç ekranında değilken) zaman aksın
     if (oyundaMiyiz && zaman > 0) {
         zaman--;
