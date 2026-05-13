@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Shift</title>
+
+    <style>
+        /* 1. TÜM SAYFAYI ORTALAMA (FLEXBOX) */
+        body {
+            background-color: #1a1a2e;
+            /* Ekranın dışındaki boşluklar için koyu renk */
+            margin: 0;
+            height: 100vh;
+            /* Sayfa yüksekliği tam ekran olsun */
+            display: flex;
+            justify-content: center;
+            /* Yatay olarak tam ortaya al */
+            align-items: center;
+            /* Dikey olarak tam ortaya al */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 2. OYUN ÇERÇEVESİ (Hem Canvas'ı hem Menü'yü tutan ana kutu) */
+        #oyunKutusu {
+            position: relative;
+            /* İçindeki 'absolute' elemanlar bu kutunun dışına taşmasın diye */
+            width: 1000px;
+            height: 600px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            /* Etrafına havalı bir gölge */
+        }
+
+        /* 3. ALT KATMAN: CANVAS (Sahne) */
+        canvas {
+            display: block;
+            background-color: #2b2b2b;
+            /* Geçici oyun arka plan rengi */
+        }
+
+        /* 4. ÜST KATMAN: GİRİŞ EKRANI (Perde) */
+        #girisEkrani {
+            position: absolute;
+            /* Canvas'ın tam üzerine binmesini sağlar */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            z-index: 10;
+            /* Canvas'ın (z-index: 1) önünde durmasını sağlar */
+
+            /* İçindeki yazıyı ve butonları ortalamak için yine flexbox kullanıyoruz */
+            display: flex;
+            flex-direction: column;
+            /* Alt alta dizilmelerini sağlar */
+            justify-content: center;
+            align-items: center;
+            
+            /* DİKKAT: ARKA PLAN ŞEFFAF OLDU Kİ RESMİN %100 NET GÖRÜNSÜN */
+            background: transparent;
+        }
+
+        /* 5. YAZI TASARIMI (RADYASYON YEŞİLİ NEON) */
+        h1 {
+            font-family: 'Trebuchet MS', sans-serif;
+            color: #ffffff;
+            /* Toksik yeşil parlama efekti */
+            text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #1b5e20;
+            font-size: 65px;
+            margin-bottom: 50px;
+            margin-top: -50px;
+            letter-spacing: 8px;
+        }
+
+        /* 6. BUTON TASARIMI (FOSFORLU YEŞİL) */
+        .menuButonu {
+            /* Koyu orman yeşilinden fosforlu yeşile geçiş */
+            background: linear-gradient(45deg, #1b5e20, #39ff14);
+            color: white;
+            border: 2px solid white;
+            padding: 15px 50px;
+            font-size: 26px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 40px; /* Köşeleri iyice yuvarlatır */
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.6); /* Yeşil gölge */
+            transition: all 0.3s ease;
+            /* Fare üzerine gelince efektin yumuşak olmasını sağlar */
+        }
+
+        /* Fare butonun üzerine gelince rengi değişsin */
+        .menuButonu:hover {
+            background: linear-gradient(45deg, #39ff14, #1b5e20); /* Renkleri ters çevir */
+            color: #111; /* Yazı siyah olsun ki fosforda okunsun */
+            transform: scale(1.1);
+            /* Çok hafif büyür */
+            box-shadow: 0 0 30px rgba(57, 255, 20, 1); /* Parlamayı artır */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ANA OYUN KUTUSU -->
+    <div id="oyunKutusu">
+
+        <!-- ALT KATMAN: OYUNUN KENDİSİ -->
+        <canvas id="gameCanvas" width="1000" height="600"></canvas>
+
+        <!-- ÜST KATMAN: GİRİŞ EKRANI (Perde) -->
+        <div id="girisEkrani">
+            <h1>RADYASYON VARDİYASI</h1>
+            <button id="baslat" class="menuButonu">OYUNA BAŞLA</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript kodlarımızı ayrı dosyadan çağırıyoruz -->
+    <script src="oyun.js"></script>
+
+</body>
+
+</html>
