@@ -200,9 +200,9 @@ const envanterMuzigi = new Audio('envanterSes.mp3');
 envanterMuzigi.loop = false;
 envanterMuzigi.volume = 0.6;
 
-const uyariMüzigi = new Audio('uyari.mp3');
-uyariMüzigi.loop = false; 
-uyariMüzigi.volume = 0.6;
+const uyariMuzigi = new Audio('uyari.mp3');
+uyariMuzigi.loop = false; 
+uyariMuzigi.volume = 0.6;
 
 const yanici = new Audio('yakiciSivi.mp3');
 yanici.loop = false; 
@@ -947,8 +947,8 @@ function kapiCarpismaKontrolu() {
                 oyunDurumu = 'bitis'; // Başlangıç ekranına geç
 
             } else {
-                uyariMüzigi.currentTime = 0; // Ses bitmeden art arda mesaj alınırsa diye başa sar
-                uyariMüzigi.play();
+                uyariMuzigi.currentTime = 0; // Ses bitmeden art arda mesaj alınırsa diye başa sar
+                uyariMuzigi.play();
                 uyariMesajiGoster = true;
                 uyariMesajiSuresi = 120;
                 player.x -= 20;
@@ -998,8 +998,8 @@ baslat.addEventListener('click', function () {
     envanterMuzigi.pause();
     envanterMuzigi.currentTime = 0;
 
-    uyariMüzigi.pause();
-    uyariMüzigi.currentTime = 0;
+    uyariMuzigi.pause();
+    uyariMuzigi.currentTime = 0;
     oyunFonMuzigi.play();
     ekranGecisiYap('giris');// Ekranı karartarak hikaye ekranına geçiş yap
  });
