@@ -186,7 +186,7 @@ oyunFonMuzigi.loop = true;
 oyunFonMuzigi.volume = 0.4;
 
 // Oyunun bitiş durumuna gelindiğinde çalan fon müziği
-const bitisMuzigi = new Audio('oyunBitisBasari.mp3');
+const bitisMuzigi = new Audio('radyasyon-vardiyasi-oyunBitisBasari.mp3');
 bitisMuzigi.loop = false;
 bitisMuzigi.volume = 0.6;
 
