@@ -3,8 +3,8 @@
 **🎮 Oynanabilir Canlı Link:** [Oyunun GitHub Pages veya itch.io linkini buraya yapıştırın]
 
 ## 👥 Grup Üyeleri
-* **Berfin Turan** - 24360859093 (Oyun Motoru, Fizik, Çarpışma Kontrolleri)
-* **Meryem Dinçer** - 24360859007 (Tasarım, Harita, Dokümantasyon)
+* **Berfin Turan** - 24360859093
+* **Meryem Dinçer** - 24360859007 
 
 ---
 
