@@ -180,6 +180,8 @@ let sonrakiDurum = '';// Ekran karardıktan sonra hangi ekrana geçileceği
 let uyariMesajiGoster = false;
 let uyariMesajiSuresi = 0;
 
+let kutuHareketEdiyorMu = false; // Sesin şalteri
+
 // Oyunun baslat butonuna basılmasından bitiş durumuna gelmesine kadar çalan fon müziği
 const oyunFonMuzigi = new Audio('oyunMuzigi.mp3');
 oyunFonMuzigi.loop = true;
@@ -189,6 +191,22 @@ oyunFonMuzigi.volume = 0.4;
 const bitisMuzigi = new Audio('oyunbitisBasari.mp3');
 bitisMuzigi.loop = false;
 bitisMuzigi.volume = 0.6;
+
+const itmeSesi = new Audio('kutuitmesesi.mp3');
+itmeSesi.loop = true; // Kutu uzun süre itilirse ses bitmesin, başa sarsın
+itmeSesi.volume = 0.5; //0 ile 1 arasında ses şiddeti
+
+const envanterMuzigi = new Audio('envanterSes.mp3');
+envanterMuzigi.loop = false;
+envanterMuzigi.volume = 0.6;
+
+const uyariMüzigi = new Audio('uyari.mp3');
+uyariMüzigi.loop = false; 
+uyariMüzigi.volume = 0.6;
+
+const yanici = new Audio('yakiciSivi.mp3');
+yanici.loop = false; 
+yanici.volume = 0.5;
 
 //Oyunda kullanılan resimler
 const arkaplanResmi = new Image();
@@ -616,6 +634,7 @@ function gameLoop() {
 function update() {
     // Ekran geçişi varsa fizikleri ve hareketi dondurur
     if (kararmaYonu !== 0) return;
+    kutuHareketEdiyorMu = false;
 
     if (oyunDurumu === 'giris') {
         let anlikHiz = tuslar.kos ? player.speed * 3 : player.speed;
@@ -700,6 +719,8 @@ function update() {
                     envanter.push("Harita");
                     ipucu1.x = -2000;
                     ipucu1.y = -2000;
+                    envanterMuzigi.currentTime = 0; // Ses bitmeden art arda alınırsa diye başa sar
+                    envanterMuzigi.play();
                 }
             }
             //Oyun içinde çarpışma kontrolleri yapılıyor
@@ -717,6 +738,8 @@ function update() {
                     envanter.push("Enerji Kesici");
                     oda2envanterKutu.x = -1000;
                     oda2envanterKutu.y = -1000;
+                    envanterMuzigi.currentTime = 0; // Ses bitmeden art arda alınırsa diye başa sar
+                    envanterMuzigi.play();
                 }
             }
             objeCarpismaKontrolu(oda2giris, false, anlikHiz);
@@ -725,7 +748,11 @@ function update() {
             if (ikiKutuCarpisiyorMu(player, oda2yer)) {
                 //Burada karakter oda2yer'e değdiğinde oyun bitiyor o yüzden müziği durduruyoruz
                 oyunFonMuzigi.pause(); //müziği durdurmak için
-                oyunFonMuzigi.currentTime = 0; //Müziği başa sarmak için
+                yanici.currentTime = 0; // Ses bitmeden art arda ölünürse diye başa sar
+                yanici.play(); 
+
+                // 2. Oyun müziğini durdurmuyoruz! Sadece baştan başlasın istersen şu satırı bırak:
+                oyunFonMuzigi.currentTime = 0;
 
                 ekranGecisiYap('baslangic');
                 girisEkrani.style.display = 'flex'; //baslangic ekranı görünür olur
@@ -740,6 +767,8 @@ function update() {
                     envanter.push("Anahtar");
                     anahtar.x = -3000;
                     anahtar.y = -3000;
+                    envanterMuzigi.currentTime = 0; // Ses bitmeden art arda alınırsa diye başa sar
+                    envanterMuzigi.play();
                 }
             }
             objeCarpismaKontrolu(oda3engel1, false, anlikHiz);
@@ -749,7 +778,11 @@ function update() {
             if (ikiKutuCarpisiyorMu(player, oda3yer)) {
                 //Burada karakter oda3yer'e değdiğinde oyun bitiyor o yüzden müziği durduruyoru
                 oyunFonMuzigi.pause(); //müziği durdurmak için
-                oyunFonMuzigi.currentTime = 0; //Müziği başa sarmak için
+                yanici.currentTime = 0; 
+                yanici.play(); 
+
+                // 2. Oyun müziği devam etsin
+                oyunFonMuzigi.currentTime = 0;
 
                 ekranGecisiYap('baslangic');
                 girisEkrani.style.display = 'flex'; //baslangic ekranı görünür olur
@@ -761,6 +794,17 @@ function update() {
             player.havadaMi = true; // Bu sayede karakter havada iken tekrar zıplama komutu verilmesi engellenir
         }
         kapiCarpismaKontrolu();
+    }
+    // --- KUTU İTME SESİ KONTROLÜ ---
+    if (kutuHareketEdiyorMu === true) {
+        // Eğer şalter açıksa ve ses DURUYORSA başlat (Saniyede 60 kere başlatmasın diye)
+        if (itmeSesi.paused) {
+            itmeSesi.play();
+        }
+    } else {
+        // Kutu itilmiyorsa sesi durdur ve başa sar
+        itmeSesi.pause();
+        itmeSesi.currentTime = 0; 
     }
 }
 
@@ -794,7 +838,7 @@ function objeCarpismaKontrolu(hedefKutu, itilebilirMi, anlikHiz) {
             if (itilebilirMi === true && tuslar.itme === true) {
                 if (player.x < hedefKutu.x && tuslar.sag) {
                     hedefKutu.x += anlikHiz; // Sağa it
-
+                    kutuHareketEdiyorMu = true;
                     let duvaraCarptiMi = false;
 
                     // Kutunun sağ kenarı tuvalden dışarı çıkıyor mu kontrolü
@@ -818,7 +862,7 @@ function objeCarpismaKontrolu(hedefKutu, itilebilirMi, anlikHiz) {
                 }
                 else if (player.x > hedefKutu.x && tuslar.sol) {
                     hedefKutu.x -= anlikHiz; // Sola it
-
+                    kutuHareketEdiyorMu = true;
                     // Hangi odadaysak o odanın duvarlarını kontrol et
                     let duvaraCarptiMi = false;
 
@@ -903,6 +947,8 @@ function kapiCarpismaKontrolu() {
                 oyunDurumu = 'bitis'; // Başlangıç ekranına geç
 
             } else {
+                uyariMüzigi.currentTime = 0; // Ses bitmeden art arda mesaj alınırsa diye başa sar
+                uyariMüzigi.play();
                 uyariMesajiGoster = true;
                 uyariMesajiSuresi = 120;
                 player.x -= 20;
@@ -946,6 +992,14 @@ baslat.addEventListener('click', function () {
     player.x = 475;
     player.y = 500;
 
+    // Oyuna tekrar başlandığında lav sesini kes
+    yanici.pause();
+    yanici.currentTime = 0;
+    envanterMuzigi.pause();
+    envanterMuzigi.currentTime = 0;
+
+    uyariMüzigi.pause();
+    uyariMüzigi.currentTime = 0;
     oyunFonMuzigi.play();
     ekranGecisiYap('giris');// Ekranı karartarak hikaye ekranına geçiş yap
  });
