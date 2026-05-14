@@ -543,10 +543,10 @@ function draw() {
         //Bitis metni
         ctx.fillStyle = "black";
         ctx.font = "bold 24px Arial";
-        ctx.fillText("Görev başarıyla tamamlandı.", 380, 200);
+        ctx.fillText("Sistemi onardın, sızıntı önlendi.", 380, 200);
 
         ctx.font = "20px Arial";
-        ctx.fillText("Tebrikler artık özgürsün", 500, 240);
+        ctx.fillText("Şehrin güvenliği sağlandı.", 500, 240);
 
         //Oyunu tamamen bitirmek için
         ctx.fillStyle = "gray";
