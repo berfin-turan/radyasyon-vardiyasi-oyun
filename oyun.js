@@ -425,7 +425,7 @@ function draw() {
         //Hikayeden nasıl çıkılacağı gösterir
         ctx.fillStyle = "gray";
         ctx.font = "italic 18px Arial";
-        ctx.fillText("[Hikayeyi geçmek için ENTER tuşuna bas]", 380, 330);
+        ctx.fillText("[Hikayeyi geçmek için ENTER tuşuna bas]", 380, 360);
     }
     else if (oyunDurumu === 'oyun') {
         //Eğer butona basılmış ve oyun ageçilmişse oda1 i çizdirir
