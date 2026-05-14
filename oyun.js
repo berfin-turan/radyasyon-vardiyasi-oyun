@@ -649,7 +649,7 @@ function update() {
     kutuHareketEdiyorMu = false;
 
     if (oyunDurumu === 'giris') {
-        let anlikHiz = tuslar.kos ? player.speed * 3 : player.speed;
+        let anlikHiz = tuslar.kos ? player.speed * 2 : player.speed;
         if (tuslar.sag) player.x += anlikHiz;
         if (tuslar.sol) player.x -= anlikHiz;
         if (tuslar.yukari) player.y -= anlikHiz; // W tuşu yukarı yürütür
@@ -669,7 +669,7 @@ function update() {
 
         // Koşma Mantığı
         // Eğer Shift basılıysa hızı 3 katına çıkar, değilse normal hızı kullandır
-        let anlikHiz = tuslar.kos ? player.speed * 3 : player.speed;
+        let anlikHiz = tuslar.kos ? player.speed * 2 : player.speed;
 
         // Hareketler
         if (tuslar.sag) {
