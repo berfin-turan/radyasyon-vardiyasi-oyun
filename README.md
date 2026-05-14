@@ -41,7 +41,7 @@ Karakter hareketi ve çevre etkileşimi klavye ve fare kombinasyonu ile sağlanm
 * **[ E ]** : Yerden Eşya / Nesne Alma
 * **[ Sol Tık (Basılı Tutarak) ]** : Özel kutuları ve engelleri itme
 * **[ ENTER ]** : Diyalogları / Hikayeyi hızlı geçme
-* **[ Q ]** : Hikaye ekranından ana menüye dönme
+
 
 ---
 
