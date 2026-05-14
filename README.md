@@ -69,7 +69,12 @@ Karakter hareketi ve çevre etkileşimi klavye ve fare kombinasyonu ile sağlanm
 ## 📂 Varlıklar ve Kaynaklar (Assets)
 Projede kullanılan tüm grafik/ses varlıklarının kaynakları ve destek alınan yapay zeka araçları aşağıda belirtilmiştir:
 
-* **Oyun Sesleri:** Bitiş/Başarı sesleri yapay zeka (Suno AI) ile oluşturulmuştur.
+* **Oyun Sesleri:**
+* Bitiş/Başarı sesleri yapay zeka (Suno AI) ile oluşturulmuştur.
+* Kutu itme sesi: https://mega-sounds.com/tr/cat-1231/sound-36375/?ysclid=mp4nid8qr8422066731
+* Yakıcı sıvıya çarpınca çıkan ses: https://sounddino.com/tr/effects/game-over/ (Ve bu klarnette isimli ses)
+* Envanter toplarken çıkan ses: https://sounddino.com/tr/effects/game-alerts/ (Yeni bir kart seçimi isimli ses)
+* Uyarı mesajı sesi: https://sounddino.com/tr/search/?s=uyar%C4%B1  (Ksilofon uyarı sesi isimli ses )
 * **Karakter Tasarımı:** Ana karakter çizimleri grubumuza aittir.
 
 **Kullanılan Nesneler ve Engeller (Pinterest İlhamı & Gemini Düzenlemesi):**
