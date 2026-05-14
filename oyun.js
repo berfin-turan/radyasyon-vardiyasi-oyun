@@ -409,7 +409,7 @@ function draw() {
 
         //Npc nin konuşma balonu
         ctx.fillStyle = "white";
-        ctx.fillRect(350, 150, 550, 200);
+        ctx.fillRect(350, 150, 550, 300);
 
         //Hikaye metni
         ctx.fillStyle = "black";
