@@ -420,6 +420,7 @@ function draw() {
         ctx.fillText("Görevimiz karanlıkta kalan odalardaki nesneleri", 380, 240);
         ctx.fillText("toplamak ve sistemi açmak. Dikkatli ol", 380, 270);
         ctx.fillText("engeller seni yavaşlatabilir...", 380, 300);
+        ctx.font = "bold 25px Arial";
         ctx.fillText("Unutma son 1 dakika...", 380, 330);
 
         //Hikayeden nasıl çıkılacağı gösterir
@@ -543,22 +544,26 @@ function draw() {
 
         ctx.drawImage(npcc, npcHikaye.x, npcHikaye.y, npcHikaye.width, npcHikaye.height);
 
+        
         //Npc nin konuşma balonu
         ctx.fillStyle = "white";
-        ctx.fillRect(350, 150, 550, 200);
+        ctx.fillRect(350, 150, 550, 300);
 
         //Bitis metni
         ctx.fillStyle = "black";
-        ctx.font = "bold 24px Arial";
-        ctx.fillText("Sistemi onardın, sızıntı önlendi.", 380, 200);
+        ctx.font = "bold 25px Arial";
+        ctx.fillText("Tebrikler Mühendis!", 380, 200); // Ana başlık
 
-        ctx.font = "20px Arial";
-        ctx.fillText("Şehrin güvenliği sağlandı.", 500, 240);
+        ctx.font = "bold 20px Arial";
+        ctx.fillText("Sistemi onardın, sızıntı önlendi.", 380, 240); // 40 piksel aşağıda
+        ctx.fillText("Şehrin güvenliği sağlandı.", 380, 270); // 30 piksel aşağıda
+        ctx.fillText("Gece vardiyası sona erdi. Dinlenmeyi hak ettin.", 380, 300); // 30 piksel aşağıda
 
         //Oyunu tamamen bitirmek için
         ctx.fillStyle = "gray";
         ctx.font = "italic 18px Arial";
-        ctx.fillText("[Oyunu tamamen sonlandırmak için ENTER' a basın]", 380, 330);
+        // Son yazı diğerlerinden biraz daha ayrı dursun diye Y değerini 350 yaptık
+        ctx.fillText("[Oyunu tamamen sonlandırmak için ENTER'a basın]", 380, 350);
     } 
 
     //Süre ve envanter gösterimi
