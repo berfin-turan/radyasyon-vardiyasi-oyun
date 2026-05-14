@@ -446,6 +446,12 @@ function draw() {
 
         spotIsik();
 
+        //Oyuncuya bilgi veriyoruz
+        ctx.fillStyle = "white";
+        ctx.font = "40px Arial";
+        ctx.fillText("İpucu:Haritayı Bul", 300, 100);
+        
+
         //Oyuncuya tuşların ne için kullanıldığını gösterir
         ctx.fillStyle = 'white';
         ctx.font = 'italic 20px Arial';
