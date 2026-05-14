@@ -557,7 +557,7 @@ function draw() {
         ctx.font = "bold 20px Arial";
         ctx.fillText("Sistemi onardın, sızıntı önlendi.", 380, 240); // 40 piksel aşağıda
         ctx.fillText("Şehrin güvenliği sağlandı.", 380, 270); // 30 piksel aşağıda
-        ctx.fillText("Gece vardiyası sona erdi. Dinlenmeyi hak ettin.", 380, 300); // 30 piksel aşağıda
+        ctx.fillText("Radyasyon vardiyası sona erdi. Dinlenmeyi hak ettin.", 380, 300); // 30 piksel aşağıda
 
         //Oyunu tamamen bitirmek için
         ctx.fillStyle = "gray";
