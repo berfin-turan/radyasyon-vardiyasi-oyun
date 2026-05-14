@@ -414,12 +414,14 @@ function draw() {
         //Hikaye metni
         ctx.fillStyle = "black";
         ctx.font = "bold 24px Arial";
-        ctx.fillText("Gözlerini açtın... Dünya bildiğin gibi değil.", 380, 200);
+        ctx.fillText("Gözlerini açtın... Şehir bildiğin gibi değil.", 380, 200);
 
         ctx.font = "20px Arial";
-        ctx.fillText("Görevimiz karanlıkta kalan odalardaki", 380, 240);
-        ctx.fillText("nesneleri toplamak ve sistemi açmak.", 380, 270);
-        ctx.fillText("Dikkatli ol, engeller seni yavaşlatabilir...", 380, 300);
+        ctx.fillText("Görevimiz karanlıkta kalan odalardaki nesneleri", 380, 240);
+        ctx.fillText("toplamak ve sistemi açmak. Dikkatli ol", 380, 270);
+        ctx.fillText("engeller seni yavaşlatabilir...", 380, 300);
+        ctx.font = "bold 24px Arial";
+        ctx.fillTexr("Unutma son 1 dakika...");
 
         //Hikayeden nasıl çıkılacağı gösterir
         ctx.fillStyle = "gray";
