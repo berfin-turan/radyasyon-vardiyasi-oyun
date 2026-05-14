@@ -420,8 +420,7 @@ function draw() {
         ctx.fillText("Görevimiz karanlıkta kalan odalardaki nesneleri", 380, 240);
         ctx.fillText("toplamak ve sistemi açmak. Dikkatli ol", 380, 270);
         ctx.fillText("engeller seni yavaşlatabilir...", 380, 300);
-        ctx.font = "bold 24px Arial";
-        ctx.fillText("Unutma son 1 dakika...",380,330);
+        ctx.fillText("Unutma son 1 dakika...", 380, 330);
 
         //Hikayeden nasıl çıkılacağı gösterir
         ctx.fillStyle = "gray";
